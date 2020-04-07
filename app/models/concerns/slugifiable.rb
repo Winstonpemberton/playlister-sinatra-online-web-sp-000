@@ -8,11 +8,9 @@ module Slugifiable
 
   module ClassMethods
     def find_by_slug(slug)
-      artists = Artist.all
-      artist_slug_name = slug
-
-      artists.detect do |artist|
-        artist.slug == artist_slug_name
+      slug_name = slug
+      self.all.detect do |object|
+        object.slug == slug_name
       end
     end
   end
